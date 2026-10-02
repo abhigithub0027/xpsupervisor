@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black_alpha_60">#99000000</color>
+    <color name="teal_200">#00B8DB33</color>
+    <color name="gray_300">#C7BFBF</color>
+    <color name="gray">#D3D3D3</color>
+    <color name="red_400">#B80765</color>
+    <color name="earning_green">#4CAF50</color>
+    <color name="earning_cancel">#FF5252</color>
+
+    <color name="videoIcon">@color/red_400</color>
+    <color name="bankWarningbg">#80FFD4EB</color>
+
+    <!-- Dark Theme Colors -->
+    <color name="dark_background">#0F1015</color>
+    <color name="dark_surface">#181F2E</color>
+    <color name="dark_primary_text">#FFFFFF</color>
+    <color name="dark_secondary_text">#8A8E9B</color>
+    <color name="dark_divider">#2A2D43</color>
+    <color name="dark_hint">#4A4E69</color>
+
+    <!-- Light Theme Colors -->
+    <color name="light_background">#F9FAFB</color>
+    <color name="light_surface">#FFFFFF</color>
+    <color name="light_primary_text">#111827</color>
+    <color name="light_secondary_text">#6B7280</color>
+    <color name="light_divider">#E5E7EB</color>
+    <color name="light_hint">#9CA3AF</color>
+
+    <color name="dynamic_primary_text">@color/light_primary_text</color>
+    <color name="dynamic_secondary_text">@color/light_secondary_text</color>
+    <color name="dynamic_hint">@color/light_hint</color>
+
+    <!-- Settings Tab Specific Colors -->
+    <color name="light_item_background">#F9F5FF</color>
+    <color name="light_item_stroke">#F3E8FF</color>
+    <color name="dark_item_background">#1B2232</color>
+    <color name="dark_item_stroke">#2A2F3A</color>
+
+    <color name="light_pink_bg">#FFF0F5</color>
+    <color name="pink_accent">#C2185B</color>
+
+    <color name="stat_blue">#E3F2FD</color>
+    <color name="stat_green">#E8F5E9</color>
+    <color name="stat_orange">#FFF3E0</color>
+    <color name="stat_red">#FFEBEE</color>
+    <color name="stat_blue_light">#E0F7FA</color>
+
+    <!-- Session status chips. A status is not an action, so these read as quiet
+         labels rather than the filled pills used for Upload Now / Continue. The
+         previous "Uploaded" pill was a solid green with green text, which was
+         effectively unreadable. -->
+    <color name="status_success_bg">#E4F6F0</color>
+    <color name="status_success_stroke">#7FD3C0</color>
+    <color name="status_success_text">#006B54</color>
+    <color name="status_info_bg">#E7F0FD</color>
+    <color name="status_info_stroke">#9CC2F5</color>
+    <color name="status_info_text">#12569C</color>
+</resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/_10sdp"
+    android:background="@drawable/bg_session_card"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/_12sdp">
+
+    <View
+        android:id="@+id/vStatusDot"
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/bg_circle_yellow" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/circular_std_bold"
+            android:maxLines="1"
+            android:textColor="?attr/primaryTextColor"
+            android:textSize="@dimen/_12ssp"
+            tools:text="Abhay Jadon" />
+
+        <TextView
+            android:id="@+id/tvDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/nunito_medium"
+            android:maxLines="1"
+            android:textColor="?attr/secondaryTextColor"
+            android:textSize="@dimen/_9ssp"
+            tools:text="CC843 · Cleaning kitchen slab / counter" />
+
+        <TextView
+            android:id="@+id/tvSessions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:fontFamily="@font/nunito_medium"
+            android:textColor="?attr/secondaryTextColor"
+            android:textSize="@dimen/_9ssp"
+            tools:text="4 today · 189 total" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:background="@drawable/bg_tab_unselected"
+        android:fontFamily="@font/circular_std_bold"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_4sdp"
+        android:textSize="@dimen/_9ssp"
+        tools:text="Active" />
+</LinearLayout>

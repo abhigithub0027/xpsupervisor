@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/backgroundColor"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/_16sdp"
+    android:paddingTop="@dimen/_16sdp"
+    android:paddingBottom="@dimen/_20sdp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/circular_std_bold"
+        android:text="@string/start_task_pick_caps"
+        android:textColor="?attr/primaryTextColor"
+        android:textSize="@dimen/_15ssp" />
+
+    <TextView
+        android:id="@+id/tvTaskName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:ellipsize="end"
+        android:fontFamily="@font/nunito_medium"
+        android:maxLines="1"
+        android:textColor="?attr/secondaryTextColor"
+        android:textSize="@dimen/_11ssp"
+        tools:text="Cleaning microwave" />
+
+    <CheckBox
+        android:id="@+id/cbSelectAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="@string/start_task_select_all"
+        android:textColor="?attr/primaryTextColor"
+        android:textSize="@dimen/_11ssp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="@dimen/_6sdp"
+        android:background="?attr/dividerColor" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="@dimen/_220sdp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/llDevices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tvEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_16sdp"
+        android:fontFamily="@font/nunito_medium"
+        android:text="@string/start_task_no_caps"
+        android:textColor="?attr/secondaryTextColor"
+        android:textSize="@dimen/_11ssp"
+        android:visibility="gone" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnStart"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:background="@drawable/bg_btn_continue_enabled"
+        android:fontFamily="@font/nunito_bold"
+        android:text="@string/start_task"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/_12ssp" />
+</LinearLayout>

@@ -1,0 +1,41 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.XpJobsSuperviser" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <item name="backgroundColor">@color/dark_background</item>
+        <item name="primaryTextColor">@color/dark_primary_text</item>
+        <item name="invertedprimaryTextColor">@color/light_primary_text</item>
+        <item name="secondaryTextColor">@color/dark_secondary_text</item>
+        <item name="invertedsecondaryTextColor">@color/light_secondary_text</item>
+        <item name="dividerColor">@color/dark_divider</item>
+        <item name="inputFieldBackgroundColor">@color/dark_item_background</item>
+        <item name="hintColor">@color/dark_hint</item>
+        <item name="surfaceColor">@color/dark_surface</item>
+        <item name="itemBackgroundColor">@color/dark_item_background</item>
+        <item name="itemStrokeColor">@color/dark_item_stroke</item>
+        <item name="homeAppBarLogo">@mipmap/ic_launcher</item>
+    </style>
+    
+    <style name="Theme.XpJobsSuperviser.Splash" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/dark_background</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+    <style name="OtpEditText">
+        <item name="android:layout_width">@dimen/_38sdp</item>
+        <item name="android:layout_height">@dimen/_42sdp</item>
+        <item name="android:layout_marginHorizontal">@dimen/_4sdp</item>
+        <item name="android:background">@drawable/bg_otp_box</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLength">1</item>
+        <item name="android:inputType">number</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">@dimen/_16ssp</item>
+        <item name="android:fontFamily">@font/nunito_bold</item>
+    </style>
+</resources>

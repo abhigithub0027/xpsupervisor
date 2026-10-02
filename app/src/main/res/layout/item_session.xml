@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_6sdp" android:layout_marginEnd="@dimen/_6sdp"
+    android:layout_marginBottom="@dimen/_12sdp"
+    android:background="@drawable/bg_session_card"
+    android:padding="@dimen/_12sdp">
+
+    <FrameLayout
+        android:id="@+id/thumbContainer"
+        android:layout_width="@dimen/_75sdp"
+        android:layout_height="@dimen/_75sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="?attr/dividerColor">
+
+            <ImageView
+                android:id="@+id/ivThumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+            <androidx.media3.ui.PlayerView
+                android:id="@+id/playerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:use_controller="false"
+                app:resize_mode="zoom" />
+
+            <ImageView
+                android:id="@+id/ivPlay"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_play"
+                app:tint="#FFFFFF" />
+
+            <FrameLayout
+                android:id="@+id/uploadOverlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#99000000"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/tvProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/str_1"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/_14ssp"
+                    android:fontFamily="@font/circular_std_bold"/>
+            </FrameLayout>
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvSessionName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:text="@string/session_name"
+        android:textColor="?attr/primaryTextColor"
+        android:textSize="@dimen/_12ssp"
+        android:fontFamily="@font/circular_std_bold"
+        android:singleLine="true"
+        android:ellipsize="middle"
+        app:layout_constraintStart_toEndOf="@id/thumbContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSessionId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:text="Session ID"
+        android:textColor="?attr/secondaryTextColor"
+        android:textSize="@dimen/_10ssp"
+        android:singleLine="true"
+        android:ellipsize="middle"
+        app:layout_constraintStart_toEndOf="@id/thumbContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSessionName" />
+
+    <LinearLayout
+        android:id="@+id/rowDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toEndOf="@id/thumbContainer"
+        app:layout_constraintTop_toBottomOf="@id/tvSessionId">
+
+        <ImageView
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:src="@drawable/ic_calendar"
+            app:tint="?attr/secondaryTextColor"/>
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:text="@string/mar_30_2026"
+            android:textColor="?attr/secondaryTextColor"
+            android:textSize="@dimen/_9ssp" />
+
+        <ImageView
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:src="@drawable/ic_clock"
+            app:tint="?attr/secondaryTextColor" />
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:text="@string/str_00_00_00"
+            android:textColor="?attr/secondaryTextColor"
+            android:textSize="@dimen/_9ssp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:text="@string/str_7_9mb_5file_s"
+        android:textColor="?attr/secondaryTextColor"
+        android:textSize="@dimen/_9ssp"
+        app:layout_constraintStart_toEndOf="@id/thumbContainer"
+        app:layout_constraintTop_toBottomOf="@id/rowDate" />
+
+    <TextView
+        android:id="@+id/btnAction"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="@drawable/bg_btn_upload_now"
+        android:gravity="center"
+        android:paddingStart="@dimen/_16sdp" android:paddingEnd="@dimen/_16sdp"
+        android:text="@string/upload_now"
+        android:textColor="?attr/primaryTextColor"
+        android:textSize="@dimen/_10ssp"
+        android:fontFamily="@font/nunito_bold"
+        app:layout_constraintStart_toEndOf="@id/thumbContainer"
+        app:layout_constraintTop_toBottomOf="@id/tvSize" />
+
+    <!--
+        Continuing a session and its upload state are independent: a session can be fully
+        uploaded and still be unfinished. They shared one button before, so the "Record"
+        action vanished the moment the chunks finished uploading and there was no way back
+        into an unfinished recording. btnAction now carries the upload status only, and
+        this carries the resume action beside it.
+    -->
+    <TextView
+        android:id="@+id/btnResume"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:background="@drawable/bg_btn_continue_enabled"
+        android:gravity="center"
+        android:paddingStart="@dimen/_14sdp"
+        android:paddingEnd="@dimen/_14sdp"
+        android:text="@string/session_resume"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/_10ssp"
+        android:fontFamily="@font/nunito_bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@id/btnAction"
+        app:layout_constraintTop_toTopOf="@id/btnAction"
+        app:layout_constraintBottom_toBottomOf="@id/btnAction" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/_20sdp"
+    android:paddingTop="@dimen/_12sdp">
+
+    <EditText
+        android:id="@+id/etDeviceId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_medium"
+        android:hint="@string/add_device_id_hint"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColor="?attr/primaryTextColor"
+        android:textColorHint="?attr/secondaryTextColor"
+        android:textSize="@dimen/_12ssp" />
+
+    <EditText
+        android:id="@+id/etDeviceName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:fontFamily="@font/nunito_medium"
+        android:hint="@string/add_device_name_hint"
+        android:inputType="textCapWords"
+        android:maxLines="1"
+        android:textColor="?attr/primaryTextColor"
+        android:textColorHint="?attr/secondaryTextColor"
+        android:textSize="@dimen/_12ssp" />
+</LinearLayout>

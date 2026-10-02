@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dynamic_primary_text">@color/dark_primary_text</color>
+    <color name="dynamic_secondary_text">@color/dark_secondary_text</color>
+    <color name="dynamic_hint">@color/dark_hint</color>
+    <color name="videoIcon">@color/white</color>
+    <color name="bankWarningbg">#401D293D</color>
+
+    <color name="stat_blue">#1E2A3A</color>
+    <color name="stat_green">#1B2E1E</color>
+    <color name="stat_orange">#2D2318</color>
+    <color name="stat_red">#2E1B1B</color>
+    <color name="stat_blue_light">#1A2D35</color>
+    <!-- Same chips on a dark card: a dim tint with a bright label, so contrast holds. -->
+    <color name="status_success_bg">#123A31</color>
+    <color name="status_success_stroke">#2E6B5B</color>
+    <color name="status_success_text">#5FD9BC</color>
+    <color name="status_info_bg">#122A44</color>
+    <color name="status_info_stroke">#2C5480</color>
+    <color name="status_info_text">#7FB6F0</color>
+</resources>

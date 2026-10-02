@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundColor">
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/_60sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/_16sdp"
+                android:paddingTop="@dimen/_30sdp">
+
+                <TextView
+                    android:id="@+id/tvOfflineBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="#D32F2F"
+                    android:fontFamily="@font/nunito_medium"
+                    android:gravity="center"
+                    android:paddingVertical="@dimen/_6sdp"
+                    android:text="Offline Mode. Showing cached data."
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="gone" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/ivLogo"
+                        android:layout_width="@dimen/_36sdp"
+                        android:layout_height="@dimen/_36sdp"
+                        android:src="?attr/homeAppBarLogo"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvAppName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:fontFamily="@font/circular_std_bold"
+                        android:text="@string/xp_job"
+                        android:textColor="?attr/primaryTextColor"
+                        android:textSize="@dimen/_16ssp"
+                        app:layout_constraintStart_toEndOf="@id/ivLogo"
+                        app:layout_constraintTop_toTopOf="@id/ivLogo" />
+
+                    <TextView
+                        android:id="@+id/tvTailscaleStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:fontFamily="@font/nunito_medium"
+                        android:text="@string/ready_to_capture"
+                        android:textColor="?attr/secondaryTextColor"
+                        android:textSize="@dimen/_10ssp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@id/ivLogo"
+                        app:layout_constraintStart_toEndOf="@id/ivLogo"
+                        app:layout_constraintTop_toBottomOf="@id/tvAppName" />
+
+                    <ImageView
+                        android:id="@+id/ivProfile"
+                        android:layout_width="@dimen/_32sdp"
+                        android:layout_height="@dimen/_32sdp"
+                        android:background="@drawable/bg_pink_circle"
+                        android:padding="@dimen/_6sdp"
+                        android:src="@drawable/ic_user_outline"
+                        app:layout_constraintBottom_toBottomOf="@id/ivLogo"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/ivLogo"
+                        app:tint="#C2185B" />
+
+                    <FrameLayout
+                        android:id="@+id/flNotification"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        app:layout_constraintBottom_toBottomOf="@id/ivProfile"
+                        app:layout_constraintEnd_toStartOf="@id/ivProfile"
+                        app:layout_constraintTop_toTopOf="@id/ivProfile">
+
+                        <ImageView
+                            android:layout_width="@dimen/_32sdp"
+                            android:layout_height="@dimen/_32sdp"
+                            android:background="@drawable/bg_pink_circle"
+                            android:padding="@dimen/_6sdp"
+                            android:src="@drawable/ic_notification"
+                            app:tint="#C2185B" />
+
+                        <View
+                            android:layout_width="@dimen/_8sdp"
+                            android:layout_height="@dimen/_8sdp"
+                            android:layout_gravity="top|end"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:background="@drawable/bg_circle_yellow" />
+                    </FrameLayout>
+
+                    <!-- Scan a cyber-cap device sticker to connect over BLE.
+                         Constrained to the START of the existing notification
+                         icon, so the notification and profile icons keep their
+                         current positions and behaviour untouched. -->
+                    <ImageView
+                        android:id="@+id/ivScanDevice"
+                        android:layout_width="@dimen/_32sdp"
+                        android:layout_height="@dimen/_32sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:background="@drawable/bg_pink_circle"
+                        android:contentDescription="@string/scan_device_qr"
+                        android:padding="@dimen/_6sdp"
+                        android:src="@drawable/ic_qr_scan"
+                        app:layout_constraintBottom_toBottomOf="@id/ivProfile"
+                        app:layout_constraintEnd_toStartOf="@id/flNotification"
+                        app:layout_constraintTop_toTopOf="@id/ivProfile"
+                        app:tint="#C2185B" />
+
+                    <!-- Link state for the paired LubanCat, sat directly under the
+                         pairing action so the icon and its status read together.
+                         Hidden entirely when no device is paired. -->
+                    <TextView
+                        android:id="@+id/tvDeviceLinkStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:fontFamily="@font/circular_std_bold"
+                        android:textSize="@dimen/_9ssp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ivProfile"
+                        tools:text="● CC843 connected"
+                        tools:visibility="visible" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--
+                    A recording that is still running. The capture lives in a foreground
+                    service, so leaving the app does not stop it - but nothing on this
+                    screen said so, and the operator had no way back to the recording
+                    screen short of finding it again through the task flow.
+                -->
+                <LinearLayout
+                    android:id="@+id/llOngoingRecording"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@drawable/bg_session_card"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_14sdp"
+                    android:paddingVertical="@dimen/_12sdp"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <View
+                        android:id="@+id/vOngoingDot"
+                        android:layout_width="@dimen/_8sdp"
+                        android:layout_height="@dimen/_8sdp"
+                        android:background="@drawable/ic_red_dot" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvOngoingTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_bold"
+                            android:textColor="?attr/primaryTextColor"
+                            android:textSize="@dimen/_11ssp"
+                            tools:text="Recording in progress" />
+
+                        <TextView
+                            android:id="@+id/tvOngoingDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:fontFamily="@font/nunito_regular"
+                            android:textColor="?attr/secondaryTextColor"
+                            android:textSize="@dimen/_9ssp"
+                            tools:text="00:42 · Chunk 3" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btnGoToRecording"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_26sdp"
+                        android:background="@drawable/bg_btn_continue_enabled"
+                        android:fontFamily="@font/nunito_bold"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/_14sdp"
+                        android:text="@string/ongoing_open"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/_10ssp" />
+                </LinearLayout>
+
+                <!--
+                    Recordings the app was killed during. Sits above the stats
+                    so an unfinished session is the first thing seen on return -
+                    the footage is on disk either way, but until it is synced
+                    the operator is the only one who knows it exists.
+                -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvInterruptedSessions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="gone"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/item_interrupted_session"
+                    tools:visibility="visible" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:background="@drawable/bg_stats_card"
+                    android:orientation="horizontal"
+                    android:paddingVertical="@dimen/_16sdp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvStatSessions"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/circular_std_bold"
+                            android:text="0"
+                            android:textColor="#00BCD4"
+                            android:textSize="@dimen/_18ssp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/sessions"
+                            android:textColor="?attr/primaryTextColor"
+                            android:textSize="@dimen/_10ssp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="?attr/dividerColor" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvStatPoints"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/circular_std_bold"
+                            android:text="@string/str_0_points"
+                            android:textColor="#FFCA28"
+                            android:textSize="@dimen/_14ssp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/earned"
+                            android:textColor="?attr/primaryTextColor"
+                            android:textSize="@dimen/_10ssp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="?attr/dividerColor" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvStatUploaded"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/circular_std_bold"
+                            android:text="0"
+                            android:textColor="#8BC34A"
+                            android:textSize="@dimen/_18ssp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/uploaded"
+                            android:textColor="?attr/primaryTextColor"
+                            android:textSize="@dimen/_10ssp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@drawable/bg_banner_gradient"
+                    android:padding="@dimen/_16sdp">
+
+                    <TextView
+                        android:id="@+id/tvBannerTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/circular_std_bold"
+                        android:text="@string/record_contribute_earn"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvBannerDesc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:fontFamily="@font/nunito_medium"
+                        android:text="@string/capture_activities_upload_egoc"
+                        android:textColor="#E0E0E0"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintEnd_toStartOf="@id/btnLearn"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvBannerTitle" />
+
+                    <TextView
+                        android:id="@+id/btnLearn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_btn_white"
+                        android:fontFamily="@font/nunito_bold"
+                        android:paddingHorizontal="@dimen/_16sdp"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:text="@string/learn"
+                        android:textColor="#D32F2F"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/circular_std_bold"
+                        android:text="@string/sample_videos"
+                        android:textColor="?attr/primaryTextColor"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvViewAllVideos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_medium"
+                        android:text="@string/view_all"
+                        android:textColor="#E53935"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSampleVideos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_sample_video" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/circular_std_bold"
+                        android:text="@string/recommended_task"
+                        android:textColor="?attr/primaryTextColor"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvViewAllTasks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_medium"
+                        android:text="@string/view_all"
+                        android:textColor="#E53935"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvRecommendedTasks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_recommended_task" />
+
+            </LinearLayout>
+        </ScrollView>
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:indeterminateTint="#00BCD4"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

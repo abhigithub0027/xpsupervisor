@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_card"
+    android:padding="16dp"
+    android:layout_marginTop="16dp">
+
+    <!-- Header Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="12dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_icon_circle"
+            android:padding="10dp"
+            android:backgroundTint="#FFF3E0"
+            android:src="@drawable/ic_folder"
+            app:tint="#E65100"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data Storage"
+            android:fontFamily="@font/circular_std_bold"
+            android:textSize="16sp"
+            android:textColor="?attr/primaryTextColor"
+            android:layout_marginStart="12dp"/>
+    </LinearLayout>
+
+    <!-- Subtitle -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose where recorded session data is stored"
+        android:textSize="13sp"
+        android:textColor="?attr/secondaryTextColor"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Tabs Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_item"
+        android:padding="4dp"
+        android:layout_marginBottom="12dp">
+
+        <!-- S3 Server Tab -->
+        <TextView
+            android:id="@+id/tabStorageS3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Server (S3)"
+            android:fontFamily="@font/circular_std_bold"
+            android:textSize="14sp"
+            android:textColor="?attr/primaryTextColor"
+            android:background="@drawable/bg_storage_tab_selected"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <!-- External / SD Card Tab -->
+        <TextView
+            android:id="@+id/tabStorageExternal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="SD Card / External"
+            android:fontFamily="@font/circular_std_bold"
+            android:textSize="14sp"
+            android:textColor="?attr/secondaryTextColor"
+            android:background="@drawable/bg_storage_tab_unselected"
+            android:clickable="true"
+            android:focusable="true"/>
+
+    </LinearLayout>
+
+    <!-- Collapsible Selector for External Storage -->
+    <LinearLayout
+        android:id="@+id/llExternalStorageDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Saves data continuously into a single recording file. Auto-sync is bypassed to retain raw sessions locally."
+            android:textSize="12sp"
+            android:textColor="?attr/secondaryTextColor"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Path Selector Row Button -->
+        <LinearLayout
+            android:id="@+id/btnSelectStoragePath"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="12dp"
+            android:background="@drawable/bg_item"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_folder"
+                app:tint="#FF9800"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Choose Storage Folder"
+                android:fontFamily="@font/circular_std_bold"
+                android:textSize="14sp"
+                android:textColor="?attr/primaryTextColor"
+                android:layout_marginStart="12dp"/>
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_arrow_right"
+                app:tint="#AAAAAA"/>
+        </LinearLayout>
+
+        <!-- Configured Path Info -->
+        <LinearLayout
+            android:id="@+id/llCurrentPathContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:padding="10dp"
+            android:background="@drawable/bg_item">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CURRENT PATH"
+                android:fontFamily="@font/circular_std_bold"
+                android:textSize="10sp"
+                android:textColor="?attr/secondaryTextColor"
+                android:layout_marginBottom="2dp"/>
+
+            <TextView
+                android:id="@+id/tvSelectedStoragePath"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="?attr/primaryTextColor"
+                android:ellipsize="middle"
+                android:singleLine="true"
+                tools:text="/storage/emulated/0/Android/data/com.miniaturesoftwares.xpjobssuperviser/files"/>
+
+            <TextView
+                android:id="@+id/tvPathStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="11sp"
+                android:fontFamily="@font/circular_std_bold"
+                android:textColor="#4CAF50"
+                tools:text="● Ready and Writable"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

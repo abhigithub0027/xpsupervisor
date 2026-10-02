@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One cap. Status first, then the two numbers that decide whether it can
+     keep recording (storage and temperature), then the action. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/_10sdp"
+    android:background="@drawable/bg_session_card"
+    android:orientation="vertical"
+    android:padding="@dimen/_12sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/vStatusDot"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/bg_circle_yellow" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvDeviceName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/circular_std_bold"
+                android:maxLines="1"
+                android:textColor="?attr/primaryTextColor"
+                android:textSize="@dimen/_12ssp"
+                tools:text="Cap 07" />
+
+            <TextView
+                android:id="@+id/tvDeviceStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/nunito_medium"
+                android:textColor="?attr/secondaryTextColor"
+                android:textSize="@dimen/_9ssp"
+                tools:text="Recording · 00:05:32" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:background="@drawable/bg_tab_selected"
+            android:fontFamily="@font/circular_std_bold"
+            android:paddingHorizontal="@dimen/_14sdp"
+            android:paddingVertical="@dimen/_7sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"
+            tools:text="Start" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutMetrics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvStorage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/nunito_medium"
+            android:textColor="?attr/secondaryTextColor"
+            android:textSize="@dimen/_9ssp"
+            tools:text="SD · 71.6 GB free" />
+
+        <TextView
+            android:id="@+id/tvTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_medium"
+            android:textColor="?attr/secondaryTextColor"
+            android:textSize="@dimen/_9ssp"
+            tools:text="62°C" />
+    </LinearLayout>
+
+    <!-- Upload state, and the way into the storage screen.
+         On the card rather than behind a long-press: a backlog is something a
+         supervisor needs to notice while scanning the fleet, not something to
+         go looking for one cap at a time. -->
+    <TextView
+        android:id="@+id/tvUploadLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="@drawable/bg_item"
+        android:drawablePadding="@dimen/_6sdp"
+        android:fontFamily="@font/nunito_medium"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_7sdp"
+        android:textColor="?attr/secondaryTextColor"
+        android:textSize="@dimen/_9ssp"
+        tools:text="2 waiting · 3.4 GB  ›" />
+
+    <TextView
+        android:id="@+id/tvWarning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:fontFamily="@font/nunito_medium"
+        android:textColor="#E53935"
+        android:textSize="@dimen/_9ssp"
+        android:visibility="gone"
+        tools:text="No SD card — recording to internal storage"
+        tools:visibility="visible" />
+</LinearLayout>

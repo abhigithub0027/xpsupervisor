@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_16sdp"
+        android:paddingTop="@dimen/_20sdp"
+        android:paddingBottom="@dimen/_24sdp">
+
+        <TextView
+            android:id="@+id/tvLinkBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#D32F2F"
+            android:fontFamily="@font/nunito_medium"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_6sdp"
+            android:text="@string/caprec_link_lost"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/vRecordingDot"
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="@dimen/_10sdp"
+                android:background="@drawable/bg_circle_dark" />
+
+            <TextView
+                android:id="@+id/tvRecordingState"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/circular_std_bold"
+                android:text="@string/caprec_state_connecting"
+                android:textColor="?attr/primaryTextColor"
+                android:textSize="@dimen/_15ssp" />
+
+            <TextView
+                android:id="@+id/tvDeviceName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_medium"
+                android:textColor="?attr/secondaryTextColor"
+                android:textSize="@dimen/_11ssp"
+                tools:text="CC843" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvElapsed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="@font/circular_std_bold"
+            android:text="@string/caprec_zero_time"
+            android:textColor="?attr/primaryTextColor"
+            android:textSize="@dimen/_40ssp" />
+
+        <TextView
+            android:id="@+id/tvTaskName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_medium"
+            android:textColor="?attr/secondaryTextColor"
+            android:textSize="@dimen/_12ssp"
+            tools:text="Task: OF-001" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/bg_stats_card"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/_14sdp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSegments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/circular_std_bold"
+                    android:text="0"
+                    android:textColor="#00BCD4"
+                    android:textSize="@dimen/_16ssp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/caprec_stat_segments"
+                    android:textColor="?attr/primaryTextColor"
+                    android:textSize="@dimen/_9ssp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?attr/dividerColor" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvFreeSpace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/circular_std_bold"
+                    android:text="@string/caprec_dash"
+                    android:textColor="#4CAF50"
+                    android:textSize="@dimen/_16ssp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/caprec_stat_free"
+                    android:textColor="?attr/primaryTextColor"
+                    android:textSize="@dimen/_9ssp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?attr/dividerColor" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTemperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/circular_std_bold"
+                    android:text="@string/caprec_dash"
+                    android:textColor="#FF9800"
+                    android:textSize="@dimen/_16ssp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/caprec_stat_temp"
+                    android:textColor="?attr/primaryTextColor"
+                    android:textSize="@dimen/_9ssp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvWarning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="@drawable/bg_card_mistakes"
+            android:fontFamily="@font/nunito_medium"
+            android:padding="@dimen/_10sdp"
+            android:textColor="#B71C1C"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="gone"
+            tools:text="Storage is low"
+            tools:visibility="visible" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/circular_std_bold"
+            android:text="@string/caprec_session_details"
+            android:textColor="?attr/primaryTextColor"
+            android:textSize="@dimen/_12ssp" />
+
+        <TextView
+            android:id="@+id/tvSessionId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:fontFamily="@font/nunito_medium"
+            android:textColor="?attr/secondaryTextColor"
+            android:textIsSelectable="true"
+            android:textSize="@dimen/_10ssp"
+            tools:text="Session: f4511f82…_1786526701891" />
+
+        <TextView
+            android:id="@+id/tvOwner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_medium"
+            android:textColor="?attr/secondaryTextColor"
+            android:textSize="@dimen/_10ssp"
+            tools:text="Started by: the supervisor app" />
+
+        <TextView
+            android:id="@+id/tvLastBeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_medium"
+            android:textColor="?attr/secondaryTextColor"
+            android:textSize="@dimen/_10ssp"
+            tools:text="Last update: 1s ago" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnStop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:background="@drawable/bg_btn_solid"
+            android:backgroundTint="@color/red_400"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false"
+            android:fontFamily="@font/nunito_bold"
+            android:text="@string/caprec_stop_recording" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnClose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/bg_btn_solid"
+            android:backgroundTint="@color/earning_green"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false"
+            android:fontFamily="@font/nunito_bold"
+            android:text="@string/caprec_close" />
+    </LinearLayout>
+</ScrollView>

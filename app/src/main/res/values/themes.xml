@@ -1,0 +1,85 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.XpJobsSuperviser" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="backgroundColor">@color/light_background</item>
+        <item name="primaryTextColor">@color/light_primary_text</item>
+        <item name="invertedprimaryTextColor">@color/dark_primary_text</item>
+        <item name="secondaryTextColor">@color/light_secondary_text</item>
+        <item name="invertedsecondaryTextColor">@color/dark_secondary_text</item>
+        <item name="dividerColor">@color/light_divider</item>
+        <item name="inputFieldBackgroundColor">@color/light_item_background</item>
+        <item name="hintColor">@color/light_hint</item>
+        <item name="surfaceColor">@color/light_surface</item>
+        <item name="itemBackgroundColor">@color/light_item_background</item>
+        <item name="itemStrokeColor">@color/light_item_stroke</item>
+        <item name="homeAppBarLogo">@mipmap/ic_launcher</item>
+    </style>
+
+    <style name="Theme.XpJobsSuperviser" parent="Base.Theme.XpJobsSuperviser" />
+
+    <style name="Theme.XpJobsSuperviser.Splash" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/dark_background</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="OtpEditText">
+        <item name="android:layout_width">@dimen/_38sdp</item>
+        <item name="android:layout_height">@dimen/_42sdp</item>
+        <item name="android:layout_marginHorizontal">@dimen/_4sdp</item>
+        <item name="android:background">@drawable/bg_otp_box</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLength">1</item>
+        <item name="android:inputType">number</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">@dimen/_16ssp</item>
+        <item name="android:fontFamily">@font/nunito_bold</item>
+    </style>
+
+    <style name="Theme.VideoPlayer" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!-- Stat tiles, shared by the home cards so the two rows stay identical. -->
+    <style name="StatColumn">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="StatValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/circular_std_bold</item>
+        <item name="android:textColor">?attr/primaryTextColor</item>
+        <item name="android:textSize">@dimen/_18ssp</item>
+    </style>
+
+    <style name="StatLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/nunito_medium</item>
+        <item name="android:textColor">?attr/secondaryTextColor</item>
+        <item name="android:textSize">@dimen/_9ssp</item>
+    </style>
+
+    <style name="FilterTab">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/_34sdp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/circular_std_bold</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+</resources>

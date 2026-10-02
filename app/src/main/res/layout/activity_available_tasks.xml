@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="viewModel" type="com.miniaturesoftwares.xpjobssuperviser.ui.viewmodels.TasksViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundColor">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/surfaceColor"
+            android:paddingTop="@dimen/_40sdp"
+            android:paddingBottom="@dimen/_16sdp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:background="@drawable/bg_permission_item"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_back_arrow"
+                app:tint="?attr/secondaryTextColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/circular_std_bold"
+                android:text="@string/available_tasks"
+                android:textColor="?attr/primaryTextColor"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toTopOf="@id/tvSubtitle"
+                app:layout_constraintStart_toEndOf="@id/btnBack"
+                app:layout_constraintTop_toTopOf="@id/btnBack"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/nunito_medium"
+                android:text="@string/choose_a_task_and_start_earnin"
+                android:textColor="?attr/secondaryTextColor"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@id/btnBack"
+                app:layout_constraintStart_toEndOf="@id/btnBack"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/headerDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/dividerColor"
+            app:layout_constraintTop_toBottomOf="@id/headerLayout" />
+
+        <LinearLayout
+            android:id="@+id/layoutSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@id/headerDivider">
+
+            <!--
+                Inline search, not a dialog: suggestions come from the server as
+                you type, so the results have to be visible while typing.
+            -->
+            <LinearLayout
+                android:id="@+id/llTagSearch"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_search_bar"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/_12sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_14sdp"
+                    android:layout_height="@dimen/_14sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:src="@drawable/ic_search"
+                    app:tint="?attr/secondaryTextColor" />
+
+                <EditText
+                    android:id="@+id/etSearchWorkType"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:fontFamily="@font/nunito_medium"
+                    android:hint="@string/search_work_type_hint"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="?attr/primaryTextColor"
+                    android:textColorHint="?attr/hintColor"
+                    android:textSize="@dimen/_11ssp" />
+
+                <ImageView
+                    android:id="@+id/btnClearSearch"
+                    android:layout_width="@dimen/_14sdp"
+                    android:layout_height="@dimen/_14sdp"
+                    android:src="@drawable/ic_close"
+                    android:visibility="gone"
+                    app:tint="?attr/secondaryTextColor" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btnGrid"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:src="@drawable/ic_grid"
+                app:tint="#E53935" /> </LinearLayout>
+
+        <!-- Which work type the list is currently narrowed to. -->
+        <LinearLayout
+            android:id="@+id/layoutFilterChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/bg_filter_chip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_12sdp"
+            android:paddingVertical="@dimen/_5sdp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutSearch">
+
+            <TextView
+                android:id="@+id/tvFilterChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_medium"
+                android:textColor="#00BCD4"
+                android:textSize="@dimen/_10ssp"
+                tools:text="Filtering by: Warehouse picking" />
+
+            <ImageView
+                android:id="@+id/btnClearFilterChip"
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:src="@drawable/ic_close"
+                app:tint="#00BCD4" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutTabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/layoutFilterChip">
+
+            <TextView
+                android:id="@+id/tabActive"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:background="@{viewModel.isActiveSelected ? @drawable/bg_tab_selected : @drawable/bg_tab_unselected}"
+                android:gravity="center"
+                android:text="@string/active"
+                android:textColor="@{viewModel.isActiveSelected ? @color/white : @color/red_400}"
+                android:fontFamily="@font/circular_std_bold"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tabCompleted"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:background="@{!viewModel.isActiveSelected ? @drawable/bg_tab_selected : @drawable/bg_tab_unselected}"
+                android:gravity="center"
+                android:text="@string/completed"
+                android:textColor="@{!viewModel.isActiveSelected ? @color/white : @color/red_400}"
+                android:fontFamily="@font/circular_std_bold"
+                android:textSize="@dimen/_12ssp" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTasks"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:clipToPadding="false"
+            android:paddingHorizontal="@dimen/_16sdp"
+            android:paddingBottom="@dimen/_24sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutTabs"
+            tools:listitem="@layout/item_available_task" />
+
+        <!--
+            Live suggestions. Declared last and given elevation so it floats
+            over the tabs and the task list rather than pushing them down -
+            the list underneath must stay put while the operator types.
+        -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTagSuggestions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:background="@drawable/bg_tag_suggestions"
+            android:elevation="@dimen/_8sdp"
+            android:maxHeight="@dimen/_200sdp"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutSearch"
+            tools:listitem="@layout/item_tag_suggestion"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

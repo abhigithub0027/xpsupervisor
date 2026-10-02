@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="backgroundColor" format="color" />
+    <attr name="primaryTextColor" format="color" />
+    <attr name="invertedprimaryTextColor" format="color" />
+    <attr name="secondaryTextColor" format="color" />
+    <attr name="invertedsecondaryTextColor" format="color" />
+    <attr name="dividerColor" format="color" />
+    <attr name="inputFieldBackgroundColor" format="color" />
+    <attr name="hintColor" format="color" />
+    <attr name="surfaceColor" format="color" />
+    <attr name="itemBackgroundColor" format="color" />
+    <attr name="itemStrokeColor" format="color" />
+    <attr name="homeAppBarLogo" format="reference" />
+</resources>

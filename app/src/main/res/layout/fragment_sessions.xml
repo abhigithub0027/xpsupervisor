@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColor">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:fontFamily="@font/circular_std_bold"
+        android:text="@string/nav_sessions"
+        android:textColor="?attr/primaryTextColor"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/layoutFilters"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+        <TextView android:id="@+id/tabAll" style="@style/FilterTab"
+            android:background="@drawable/bg_tab_selected"
+            android:textColor="@color/white" android:text="@string/sessions_all" />
+
+        <TextView android:id="@+id/tabPassed" style="@style/FilterTab"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:background="@drawable/bg_tab_unselected"
+            android:textColor="@color/red_400" tools:text="Passed (51)" />
+
+        <TextView android:id="@+id/tabFailed" style="@style/FilterTab"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:background="@drawable/bg_tab_unselected"
+            android:textColor="@color/red_400" tools:text="Failed (99)" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSessions"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:clipToPadding="false"
+        android:paddingHorizontal="@dimen/_16sdp"
+        android:paddingBottom="@dimen/_16sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutFilters"
+        tools:listitem="@layout/item_session" />
+
+    <TextView
+        android:id="@+id/tvEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_medium"
+        android:text="@string/sessions_empty"
+        android:textColor="?attr/secondaryTextColor"
+        android:textSize="@dimen/_11ssp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/rvSessions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rvSessions" />
+</androidx.constraintlayout.widget.ConstraintLayout>

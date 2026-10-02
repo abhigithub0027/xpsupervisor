@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColor">
+
+    <!-- Header: same proportions and type ramp as the recorder app's home. -->
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="@dimen/_36sdp"
+        android:layout_height="@dimen/_36sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:src="?attr/homeAppBarLogo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:fontFamily="@font/circular_std_bold"
+        android:text="@string/fleet_title"
+        android:textColor="?attr/primaryTextColor"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintStart_toEndOf="@id/ivLogo"
+        app:layout_constraintTop_toTopOf="@id/ivLogo" />
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:fontFamily="@font/nunito_medium"
+        android:textColor="?attr/secondaryTextColor"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintBottom_toBottomOf="@id/ivLogo"
+        app:layout_constraintStart_toEndOf="@id/ivLogo"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        tools:text="4 connected · 2 recording" />
+
+    <!-- The backend's device register. Lives beside the fleet rather than in
+         the tab bar: it answers "which caps exist and who holds them", which is
+         the same question one step removed from "which caps are live". -->
+    <ImageView
+        android:id="@+id/btnRegister"
+        android:layout_width="@dimen/_32sdp"
+        android:layout_height="@dimen/_32sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:background="@drawable/bg_pink_circle"
+        android:contentDescription="@string/devices_title"
+        android:padding="@dimen/_6sdp"
+        android:src="@drawable/ic_nav_devices"
+        app:layout_constraintBottom_toBottomOf="@id/ivLogo"
+        app:layout_constraintEnd_toStartOf="@id/btnAddDevice"
+        app:layout_constraintTop_toTopOf="@id/ivLogo"
+        app:tint="#C2185B" />
+
+    <ImageView
+        android:id="@+id/btnAddDevice"
+        android:layout_width="@dimen/_32sdp"
+        android:layout_height="@dimen/_32sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:background="@drawable/bg_pink_circle"
+        android:contentDescription="@string/fleet_add_device"
+        android:padding="@dimen/_6sdp"
+        android:src="@drawable/ic_qr_scan"
+        app:layout_constraintBottom_toBottomOf="@id/ivLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ivLogo"
+        app:tint="#C2185B" />
+
+    <!-- Fleet-wide actions. Deliberately above the list: a supervisor's most
+         common action is "everyone start", not per-device fiddling. -->
+    <LinearLayout
+        android:id="@+id/layoutFleetActions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivLogo">
+
+        <TextView
+            android:id="@+id/btnStartAll"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_tab_selected"
+            android:fontFamily="@font/circular_std_bold"
+            android:gravity="center"
+            android:text="@string/fleet_start_all"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp" />
+
+        <TextView
+            android:id="@+id/btnStopAll"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_tab_unselected"
+            android:fontFamily="@font/circular_std_bold"
+            android:gravity="center"
+            android:text="@string/fleet_stop_all"
+            android:textColor="@color/red_400"
+            android:textSize="@dimen/_12ssp" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFleet"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:clipToPadding="false"
+        android:paddingHorizontal="@dimen/_16sdp"
+        android:paddingBottom="@dimen/_24sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutFleetActions"
+        tools:listitem="@layout/item_fleet_device" />
+
+    <LinearLayout
+        android:id="@+id/layoutEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/rvFleet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rvFleet"
+        tools:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/circular_std_bold"
+            android:text="@string/fleet_empty_title"
+            android:textColor="?attr/primaryTextColor"
+            android:textSize="@dimen/_13ssp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:fontFamily="@font/nunito_medium"
+            android:text="@string/fleet_empty_body"
+            android:textColor="?attr/secondaryTextColor"
+            android:textSize="@dimen/_10ssp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

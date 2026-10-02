@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Upload progress for one cap.
+
+     The headline is the backlog, not the uploaded count: a supervisor needs to
+     know whether data is still stuck on the device, and a large "uploaded"
+     figure would read as reassuring while a backlog quietly grows. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/uploadCardRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_session_card"
+    android:orientation="vertical"
+    android:padding="@dimen/_14sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/vUploadDot"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/bg_circle_yellow" />
+
+        <TextView
+            android:id="@+id/tvUploadState"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/circular_std_bold"
+            android:textColor="?attr/primaryTextColor"
+            android:textSize="@dimen/_12ssp"
+            tools:text="Uploading" />
+
+        <TextView
+            android:id="@+id/tvUploadAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_medium"
+            android:textColor="?attr/secondaryTextColor"
+            android:textSize="@dimen/_9ssp"
+            tools:text="12s ago" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvUploadDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:fontFamily="@font/nunito_medium"
+        android:textColor="?attr/secondaryTextColor"
+        android:textSize="@dimen/_9ssp"
+        tools:text="2 waiting · 3.4 GB · oldest 6 days ago" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvStatUploaded"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/circular_std_bold"
+                android:textColor="?attr/primaryTextColor"
+                android:textSize="@dimen/_13ssp"
+                tools:text="17" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_medium"
+                android:text="@string/stat_waiting"
+                android:textColor="?attr/secondaryTextColor"
+                android:textSize="@dimen/_8ssp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvStatPending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/circular_std_bold"
+                android:textColor="?attr/primaryTextColor"
+                android:textSize="@dimen/_13ssp"
+                tools:text="2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_medium"
+                android:text="@string/stat_size"
+                android:textColor="?attr/secondaryTextColor"
+                android:textSize="@dimen/_8ssp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvStatFailed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/circular_std_bold"
+                android:textColor="?attr/primaryTextColor"
+                android:textSize="@dimen/_13ssp"
+                tools:text="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_medium"
+                android:text="@string/stat_oldest"
+                android:textColor="?attr/secondaryTextColor"
+                android:textSize="@dimen/_8ssp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Byte progress of the file going out right now.
+         The earlier bar was removed for showing uploaded/(uploaded+backlog),
+         which measured nothing. This one is real: the device now reports the
+         running byte count from rclone, so the bar and the figures beside it
+         are the same number. Hidden entirely when nothing is uploading -
+         a 0% bar sitting there reads as a stall. -->
+    <LinearLayout
+        android:id="@+id/groupProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/tvProgressBytes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/circular_std_bold"
+            android:textColor="?attr/primaryTextColor"
+            android:textSize="@dimen/_11ssp"
+            tools:text="128 MB of 693 MB · 18%" />
+
+        <ProgressBar
+            android:id="@+id/pbUpload"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:max="100"
+            tools:progress="18" />
+
+        <TextView
+            android:id="@+id/tvProgressRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:fontFamily="@font/nunito_medium"
+            android:textColor="?attr/secondaryTextColor"
+            android:textSize="@dimen/_9ssp"
+            tools:text="9.1 MB/s · 565 MB left · about 1m" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvRunCounters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/nunito_medium"
+        android:textColor="?attr/secondaryTextColor"
+        android:textSize="@dimen/_8ssp"
+        tools:text="4 uploaded, 2 failed attempts since the uploader last started" />
+
+    <!-- The device's own last error, shown verbatim. This is frequently the
+         only place the real cause appears - a repeated failure here is what
+         distinguishes "slow link" from "this file will never upload". -->
+    <TextView
+        android:id="@+id/tvUploadError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/bg_item"
+        android:fontFamily="@font/nunito_medium"
+        android:padding="@dimen/_8sdp"
+        android:textColor="#E53935"
+        android:textSize="@dimen/_9ssp"
+        android:visibility="gone"
+        tools:text="upload failed: device_x.mcap"
+        tools:visibility="visible" />
+</LinearLayout>

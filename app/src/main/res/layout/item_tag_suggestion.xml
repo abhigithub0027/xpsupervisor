@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/_14sdp"
+    android:paddingVertical="@dimen/_10sdp">
+
+    <TextView
+        android:id="@+id/tvTagTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="@font/circular_std_bold"
+        android:maxLines="1"
+        android:textColor="?attr/primaryTextColor"
+        android:textSize="@dimen/_11ssp"
+        tools:text="Warehouse picking" />
+
+    <TextView
+        android:id="@+id/tvTagSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:ellipsize="end"
+        android:fontFamily="@font/nunito_medium"
+        android:maxLines="1"
+        android:textColor="?attr/secondaryTextColor"
+        android:textSize="@dimen/_9ssp"
+        tools:text="Logistics • Inbound" />
+</LinearLayout>

@@ -1,0 +1,293 @@
+<resources>
+    <string name="app_name">XpJobsSuperviser</string>
+    <string name="fleet_title">Fleet</string>
+    <string name="fleet_add_device">Add a device</string>
+    <string name="fleet_start_all">Start all</string>
+    <string name="fleet_stop_all">Stop all</string>
+    <string name="fleet_empty_title">No devices yet</string>
+    <string name="fleet_empty_body">Scan a cap\'s QR sticker to add it.</string>
+    <string name="fleet_summary">%1$d connected · %2$d recording</string>
+    <string name="fleet_status_connecting">Connecting…</string>
+    <string name="fleet_status_waiting">Waiting for a free slot</string>
+    <string name="fleet_status_idle">Not connected</string>
+    <string name="fleet_status_stale">No signal</string>
+    <string name="fleet_status_ready">Ready</string>
+    <string name="fleet_status_recording">Recording · %1$s</string>
+    <string name="fleet_action_start">Start</string>
+    <string name="fleet_action_stop">Stop</string>
+    <string name="fleet_storage_sd">SD · %1$s free</string>
+    <string name="fleet_storage_internal">Internal · %1$s free</string>
+    <string name="fleet_warn_no_sd">No SD card — recording to internal storage</string>
+    <string name="fleet_warn_low_space">Storage almost full</string>
+    <string name="fleet_warn_hot">Running hot (%1$d°C)</string>
+    <string name="fleet_slot_limit">Android allows %1$d live links at once; the rest reconnect as slots free up.</string>
+    <string name="fleet_added">%1$s added</string>
+    <string name="fleet_already_paired">That device is already in your fleet</string>
+    <string name="fleet_bt_off">Turn on Bluetooth to reach your devices</string>
+    <string name="fleet_permission_needed">Bluetooth permission is needed to reach your devices</string>
+    <string name="fleet_not_cybercap">That QR code is not a device pairing code</string>
+
+    <!-- Manual (type the device ID) add-device dialog -->
+    <string name="add_device_title">Add a cap</string>
+    <string name="add_device_id_hint">Device ID</string>
+    <string name="add_device_name_hint">Name (optional)</string>
+    <string name="add_device_connect">Connect</string>
+    <string name="add_device_scan">Scan QR</string>
+    <string name="add_device_id_required">Enter a device ID</string>
+    <string name="fleet_scan_cancelled">Scan cancelled</string>
+    <string name="fleet_scan_prompt">Point the camera at the QR sticker on the cap</string>
+    <string name="fleet_started_n">Started %1$d device(s)</string>
+    <string name="fleet_stopped_n">Stopped %1$d device(s)</string>
+    <string name="fleet_remove_title">Remove this device?</string>
+    <string name="fleet_remove_body">%1$s will be unpaired. You can add it again by scanning its sticker.</string>
+    <string name="fleet_remove_confirm">Remove</string>
+    <string name="fleet_refused">Device refused: %1$s</string>
+    <string name="fleet_refused_no_reason">no reason given</string>
+    <string name="fleet_refused_toast">%1$s refused: %2$s</string>
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_fleet">Fleet</string>
+    <string name="nav_tasks">Tasks</string>
+    <string name="nav_sessions">Sessions</string>
+
+    <!-- Home -->
+    <string name="home_subtitle">Your fleet at a glance</string>
+    <string name="home_default_greeting">Supervisor</string>
+    <string name="home_devices">Devices</string>
+    <string name="home_connected">Connected</string>
+    <string name="home_recording">Recording</string>
+    <string name="home_totals">Overall</string>
+    <string name="home_sessions">Sessions</string>
+    <string name="home_uploaded">Uploaded</string>
+    <string name="home_points">Points</string>
+
+    <!-- Tasks -->
+    <string name="tasks_search_hint">Search by work type…</string>
+    <string name="tasks_filtering_by">Filtering by: %1$s</string>
+    <string name="tasks_active">Active</string>
+    <string name="tasks_completed">Completed</string>
+    <string name="tasks_empty">No tasks found.</string>
+
+    <!-- Sessions -->
+    <string name="sessions_all">All</string>
+    <string name="sessions_passed_n">Passed (%1$d)</string>
+    <string name="sessions_failed_n">Failed (%1$d)</string>
+    <string name="sessions_empty">No sessions yet.</string>
+    <string name="sessions_untitled">Untitled session</string>
+    <string name="sessions_pending">Pending</string>
+    <string name="sessions_rejected">Rejected: %1$s</string>
+
+    <!-- Login -->
+    <string name="login_title">Sign in</string>
+    <string name="login_subtitle">Enter your phone number to receive a code.</string>
+    <string name="login_phone_hint">10-digit phone number</string>
+    <string name="login_otp_hint">Verification code</string>
+    <string name="login_send_code">Send code</string>
+    <string name="login_verify">Verify</string>
+    <string name="login_change_number">Change number</string>
+    <string name="login_otp_sent">Code sent to %1$s</string>
+    <string name="login_phone_invalid">Enter a 10-digit phone number</string>
+    <string name="login_otp_invalid">Enter the code you received</string>
+    <string name="login_failed">Sign in failed</string>
+    <string name="active">Active</string>
+    <string name="all_recordings">All recordings</string>
+    <string name="available_tasks">Available Tasks</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="capture_activities_upload_egoc">Capture activities, upload egocentric data,\nand earn based on quality and duration.</string>
+    <string name="choose_a_task_and_start_earnin">Choose a task and start earning instantly</string>
+    <string name="completed">Completed</string>
+    <string name="configure_your_preferences">Configure your preferences</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="earned">Earned</string>
+    <string name="export_sessions_to_downloads">Export Sessions to Downloads</string>
+    <string name="failed">Failed</string>
+    <string name="learn">Learn</string>
+    <string name="logout">Logout</string>
+    <string name="lucknow">Lucknow</string>
+    <string name="mar_30_2026">Mar 30, 2026</string>
+    <string name="no_sessions_yet">No Sessions Yet</string>
+    <string name="ongoing_open">Go to recording</string>
+    <string name="ready_to_capture">Ready to capture</string>
+    <string name="recent">Recent</string>
+    <string name="recommended_task">Recommended Task</string>
+    <string name="record_contribute_earn">Record. Contribute. Earn.</string>
+    <string name="sample_videos">Sample Videos</string>
+    <string name="scan_device_qr">Scan device QR</string>
+    <string name="search_work_type_hint">Search by Work Type...</string>
+    <string name="session_history">Session History</string>
+    <string name="session_name">Session_Name</string>
+    <string name="session_resume">Continue</string>
+    <string name="sessions">Sessions</string>
+    <string name="settings">Settings</string>
+    <string name="shakun_jaiswal">Shakun Jaiswal</string>
+    <string name="start_recording_to_create_your">Start recording to create your first data\ncapture session</string>
+    <string name="start_task">Start Task</string>
+    <string name="str_00_00_00">00:00:00</string>
+    <string name="str_0_points">0 Points</string>
+    <string name="str_1">1%</string>
+    <string name="str_7_9mb_5file_s">7.9MB • 5file(s)</string>
+    <string name="upload_now">Upload Now</string>
+    <string name="uploaded">Uploaded</string>
+    <string name="view_all">View All</string>
+
+    <!-- Start-task-on-devices sheet + View All screens -->
+    <string name="start_task_pick_caps">Start on which caps?</string>
+    <string name="start_task_select_all">Select all ready caps</string>
+    <string name="start_task_no_caps">No caps connected. Pair or connect one on the Fleet tab.</string>
+    <string name="start_task_button">Start on %1$d cap(s)</string>
+    <string name="start_task_sending">Starting on %1$d cap(s)…</string>
+    <string name="start_task_result">Recording on %1$d of %2$d cap(s)</string>
+    <string name="start_task_none_selected">Select at least one cap</string>
+    <string name="available_tasks_title">Available Tasks</string>
+    <string name="available_tasks_empty">No tasks available</string>
+    <string name="sample_videos_empty">No sample videos yet</string>
+    <string name="task_tab_active">Active</string>
+    <string name="task_tab_completed">Completed</string>
+
+    <!-- Per-cap live recording stats screen -->
+    <string name="caprec_state_recording">Recording</string>
+    <string name="caprec_state_idle">Idle</string>
+    <string name="caprec_state_connecting">Connecting…</string>
+    <string name="caprec_zero_time">00:00:00</string>
+    <string name="caprec_dash">—</string>
+    <string name="caprec_stat_segments">Segments</string>
+    <string name="caprec_stat_free">Free space</string>
+    <string name="caprec_stat_temp">Temp</string>
+    <string name="caprec_session_details">Session details</string>
+    <string name="caprec_session_line">Session: %1$s</string>
+    <string name="caprec_owner_line">Started by: %1$s</string>
+    <string name="caprec_owner_phone">the supervisor app</string>
+    <string name="caprec_owner_button">the device button</string>
+    <string name="caprec_owner_none">—</string>
+    <string name="caprec_task_line">Task: %1$s</string>
+    <string name="caprec_last_update">Last update: %1$ds ago</string>
+    <string name="caprec_no_updates">No updates yet</string>
+    <string name="caprec_link_lost">Link lost — values below are the last known</string>
+    <string name="caprec_warn_space">Storage is low</string>
+    <string name="caprec_warn_temp">Running hot: %1$d°C</string>
+    <string name="caprec_warn_no_sd">No SD card</string>
+    <string name="caprec_stop_recording">Stop recording</string>
+    <string name="caprec_close">Close</string>
+    <string name="caprec_stop_title">Stop recording?</string>
+    <string name="caprec_stop_message">This stops the recording on this cap.</string>
+    <string name="caprec_stopping">Stopping…</string>
+    <string name="caprec_stopped">Recording stopped</string>
+    <string name="caprec_stop_refused">Cap refused: %1$s</string>
+    <string name="caprec_send_failed">Couldn\'t reach the cap</string>
+    <string name="xp_job">XP Job</string>
+    <string name="app_language">App Language</string>
+    <string name="bank_account_details">Bank Account Details</string>
+    <string name="contact_support">Contact Support</string>
+    <string name="devices_forget">Forget device</string>
+    <string name="devices_none_paired">No device paired. Scan a device QR sticker from the Home screen to connect one.</string>
+    <string name="devices_reconnect">Reconnect</string>
+    <string name="devices_section_subtitle">The LubanCat this phone is paired with</string>
+    <string name="devices_section_title">Recording Device</string>
+    <string name="english">English</string>
+    <string name="faqs">FAQs</string>
+    <string name="help_amp_support">Help &amp; Support</string>
+    <string name="language_amp_preferences">Language &amp; Preferences</string>
+    <string name="legal">Legal</string>
+    <string name="payment_settings">Payment Settings</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="report_issue">Report Issue</string>
+    <string name="terms_amp_conditions">Terms &amp; Conditions</string>
+    <string name="upi_id">UPI ID</string>
+    <string name="home_fleet_summary">%1$d devices · %2$d connected · %3$d recording</string>
+    <string name="str_0_points_value">%1$d Points</string>
+    <string name="settings_version">XP Jobs Supervisor v%1$s</string>
+    <string name="settings_logout_title">Log out?</string>
+    <string name="settings_logout_body">You will need to sign in again to reach the fleet and its sessions.</string>
+    <string name="settings_logout_confirm">Log out</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_people">People</string>
+    <string name="people_title">Recording staff</string>
+    <string name="people_search_hint">Search by name…</string>
+    <string name="people_all">All</string>
+    <string name="people_active">Active</string>
+    <string name="people_idle">Idle</string>
+    <string name="people_offline">Offline</string>
+    <string name="people_empty">No staff found.</string>
+    <string name="people_no_device">No device assigned</string>
+    <string name="people_sessions">%1$d today · %2$d total</string>
+    <string name="devices_title">Devices</string>
+    <string name="devices_empty">No devices registered.</string>
+    <string name="devices_unassigned">Unassigned</string>
+    <string name="devices_assigned_to">Assigned to %1$s</string>
+    <string name="devices_meta">%1$s · %2$d sessions</string>
+    <string name="devices_in_range">In range</string>
+    <string name="devices_out_of_range">Out of range</string>
+
+    <!-- Device storage / upload status -->
+    <string name="device_storage">Device Storage</string>
+    <string name="recordings_on_device">Recordings on device</string>
+    <string name="no_recordings_on_device">No recordings on this device</string>
+    <string name="load_more">Load more</string>
+    <string name="refresh">Refresh</string>
+    <string name="pending">Pending</string>
+    <string name="uploader_status_unknown">This device has not reported any upload status. Either its uploader has never run, or its firmware predates upload reporting.</string>
+    <string name="upload_state_live">Uploading</string>
+    <string name="upload_state_idle">All uploaded</string>
+    <string name="upload_state_stale">Uploader not responding</string>
+    <string name="upload_state_offline">Device offline</string>
+    <string name="seg_state_recording">Recording</string>
+    <string name="seg_state_awaiting_encrypt">Waiting</string>
+    <string name="seg_state_encrypting">Encrypting</string>
+    <string name="seg_state_pending_upload">Pending</string>
+    <string name="seg_state_uploading">Uploading</string>
+    <string name="seg_state_unknown">Unknown</string>
+    <string name="task_prefix_fmt">Task %1$s</string>
+    <string name="segment_prefix_fmt">segment %1$d</string>
+    <string name="upload_state_live_link">connected</string>
+    <string name="device_not_connected">Device not connected</string>
+    <string name="ago_fmt">%1$s ago</string>
+    <string name="awaiting_ack_fmt">%1$d awaiting ack</string>
+    <string name="on_device_fmt">%1$s on device</string>
+    <string name="free_fmt">%1$s free</string>
+
+    <plurals name="waiting_count">
+        <item quantity="one">%d waiting</item>
+        <item quantity="other">%d waiting</item>
+    </plurals>
+    <plurals name="file_count">
+        <item quantity="one">%d file</item>
+        <item quantity="other">%d files</item>
+    </plurals>
+    <string name="upload_line_unknown">Upload status unknown  ›</string>
+    <string name="upload_line_backlog">%1$d waiting · %2$s  ›</string>
+    <string name="upload_line_failed">%1$d upload failure(s)  ›</string>
+    <string name="upload_line_idle">All uploaded  ›</string>
+    <string name="upload_line_stale">Uploader not responding  ›</string>
+
+    <!-- Device storage: plain-language status. The question a supervisor is
+         actually asking is "is this cap's data safely off it yet". -->
+    <string name="upload_head_clear">Nothing waiting to upload</string>
+    <string name="upload_head_uploading">Uploading now</string>
+    <string name="upload_head_waiting">Waiting to upload</string>
+    <string name="upload_head_stuck">Uploads are not getting through</string>
+    <string name="upload_head_stale">Uploader has stopped responding</string>
+    <string name="upload_head_unknown">No upload status reported</string>
+
+    <string name="upload_sub_clear">Everything recorded on this device has been uploaded.</string>
+    <string name="upload_sub_uploading">%1$s still on the device.</string>
+    <string name="upload_sub_stuck">%1$s has been retried without success. The recording may be damaged on the card.</string>
+    <string name="upload_sub_stale">It last reported %1$s ago. The device is reachable, so the uploader itself may have stopped.</string>
+    <string name="upload_sub_unknown">This device has not reported any upload status. Either its uploader has never run, or its firmware predates upload reporting.</string>
+
+    <string name="stat_waiting">Waiting</string>
+    <string name="stat_size">Size</string>
+    <string name="stat_oldest">Oldest</string>
+    <string name="stat_none">–</string>
+
+    <string name="run_counters_fmt">%1$d uploaded, %2$d failed attempts since the uploader last started</string>
+    <string name="run_counters_no_fail">%1$d uploaded since the uploader last started</string>
+    <string name="last_error_label">Last error reported by the device</string>
+
+    <string name="rec_waiting_fmt">waiting %1$s</string>
+    <string name="rec_untitled">Unnamed recording</string>
+    <string name="recordings_summary_fmt">%1$s on this device · %2$s free</string>
+    <string name="progress_bytes_fmt">%1$s of %2$s · %3$d%%</string>
+    <string name="progress_rate_fmt">%1$s/s · %2$s left</string>
+    <string name="progress_rate_eta_fmt">%1$s/s · %2$s left · about %3$s</string>
+    <string name="upload_sub_progress">Uploading %1$s.</string>
+</resources>
