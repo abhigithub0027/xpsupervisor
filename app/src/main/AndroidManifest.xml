@@ -42,24 +42,31 @@
         android:theme="@style/Theme.XpJobsSuperviser">
 
         <activity
-
             android:name=".ui.DeviceStorageActivity"
-
             android:exported="false"
-
             android:screenOrientation="portrait" />
 
+        <!-- Splash = app ka entry point -->
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.fragments.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"
             tools:ignore="LockedOrientationActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+        <!-- MainActivity = Splash ke baad open hogi -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
 
         <activity
             android:name=".ui.auth.LoginActivity"
@@ -68,12 +75,11 @@
             android:windowSoftInputMode="adjustResize"
             tools:ignore="LockedOrientationActivity" />
 
-        <!-- Portrait QR capture, same reason as the recorder app: the ZXing
-             default activity is sensorLandscape and opens sideways. -->
         <activity
             android:name=".cybercap.PortraitCaptureActivity"
             android:screenOrientation="portrait"
             android:stateNotNeeded="true"
             tools:ignore="LockedOrientationActivity" />
+
     </application>
 </manifest>
